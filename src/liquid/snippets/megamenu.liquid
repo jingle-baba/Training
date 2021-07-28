@@ -1,0 +1,76 @@
+<div class="megamenu" data-src="{{block.settings.mega-primary-select | strip | downcase}}">
+    <div class="container-fluid megamenu__container">
+        <div class="megamenu__grid">
+
+            <div class="megamenu__list megamenu__list--menu"> <!--update to list-->
+              {% if block.settings.mega-menu-1 %}
+                <div class="megamenu__content">
+                    {% if block.settings.Menu-heading-1 != blank %}
+                      <h5 class="megamenu__heading">{{block.settings.Menu-heading-1}}</h5>
+                    {% endif %}
+                    <ul class="megamenu__list">
+                        {% for link in linklists[block.settings.mega-menu-1 ].links %}
+                        <li class="megamenu__item">
+                            <a class="megamenu__link megamenu__link--bold" href="{{link.url}}">{{link.title}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+              {% endif %}
+
+              {% if block.settings.mega-menu-2 %}
+              <div class="megamenu__content">
+                  {% if block.settings.Menu-heading-2 != blank %}
+                    <h5 class="megamenu__heading">{{block.settings.Menu-heading-2}}</h5> <!--update to heading , use only for body texts-->
+                  {% endif %}
+                  <ul class="megamenu__list">
+                      {% for link in linklists[block.settings.mega-menu-2 ].links %}
+                      <li class="megamenu__item">
+                          <a class="megamenu__link" href="{{link.url}}">{{link.title}}</a>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            {% endif %} 
+
+            {% if block.settings.mega-menu-3 %}
+            <div class="megamenu__content">
+                {% if block.settings.Menu-heading-3 != blank %}
+                  <h5 class="megamenu__heading">{{block.settings.Menu-heading-3}}</h5>
+                {% endif %}
+                <ul class="megamenu__list">
+                    {% for link in linklists[block.settings.mega-menu-3 ].links %}
+                    <li class="megamenu__item">
+                        <a class="megamenu__link" href="{{link.url}}">{{link.title}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+          {% endif %}   
+          
+          {% if block.settings.mega-menu-4 %}
+          <div class="megamenu__content">
+              {% if block.settings.Menu-heading-4 != blank %}
+                <h5 class="megamenu__heading">{{block.settings.Menu-heading-4}}</h5>
+              {% endif %}
+              <ul class="megamenu__list">
+                  {% for link in linklists[block.settings.mega-menu-4 ].links %}
+                  <li class="megamenu__item">
+                      <a class="megamenu__link" href="{{link.url}}">{{link.title}}</a>
+                  </li>
+                  {% endfor %}
+              </ul>
+          </div>
+        {% endif %} 
+            </div>
+
+            <div class="megamenu__list megamenu__list--image">
+               <img class="megamenu__image" alt="" src="{{block.settings.mega-menu-image | img_url: 'master'}}"/>
+               <p class="megamenu__caption">{{block.settings.mega-menu-text}}</p>
+               {% if block.settings.mega-cta-url and block.settings.mega-cta-text != blank %}
+                <a class="megamenu__cta link--default" href="{{block.settings.mega-cta-url}}">{{block.settings.mega-cta-text |  upcase}}</a>
+               {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

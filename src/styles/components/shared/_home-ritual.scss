@@ -1,0 +1,85 @@
+:root {
+    --swiper-theme-color: #000;
+}
+
+$component: ".ritual";
+$child-component: ".pagination";
+
+#{$component} {
+    @include padding(rem(80px),null,null,null);
+    position: relative
+}
+
+#{$component}__row {
+    @include margin(rem(38px),auto,0,auto);
+    max-width: rem(1008px);
+   @include above ('tablet-large') {
+    @include margin(rem(64px),auto,0,auto);
+   }
+}
+
+#{$component}__container {
+    @include above ('mobile-large') {
+      padding: 0 24px
+    }
+
+    @include above('tablet') {
+        padding: 0 36px;
+    }
+
+    @include above ('tablet-large') {
+        padding: 0 40px;
+    }
+
+    @include above('desktop') {
+        padding: 0 64px;
+    }
+
+}
+
+.swiper-pagination-progressbar {
+    position: static;
+    background: color('white');
+    height: rem(5px);
+    @include margin(rem(4px),null,null,null);
+}
+
+.swiper-pagination-progressbar-fill {
+    border-radius: 4px;;
+}
+
+
+#{$child-component}__text {
+    margin-bottom:0;
+    font-size: rem(9px);
+    letter-spacing: rem(2.5px);
+
+    &--bold{
+        font-weight: 500;
+    }
+}
+
+#{$child-component}__fraction {
+ @include padding(0,0,0,rem(35px));
+}
+
+
+
+#{$child-component} {
+    @include margin(rem(40px),0,0,0);
+
+    @include above('tablet') {
+        display: none;
+    }
+}
+
+#{$component}__background {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    top: -258px;
+    left: 0;
+    max-height: 100%;
+    z-index:-1;
+}
+

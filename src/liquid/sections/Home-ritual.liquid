@@ -1,0 +1,43 @@
+<div class="ritual section">
+    <div class="container ritual__container">
+        <div class="section__head">
+            {% if section.settings.section_heading != blank %}
+             <h3 class="section__heading">{{section.settings.section_heading}}</h3>
+             {% endif %}
+             {% if section.settings.section_subheading-text != blank %}
+            <a class="section__subheading link link--default" href="{{section.settings.section_subheading-url}}">{{section.settings.section_subheading-text}}</a>
+            {% endif %}
+        </div>
+        <div class="section__body">
+            <div class="ritual__row">
+                {% include 'product-grid' %}
+            </div>
+        </div>
+    </div>
+        <img class="ritual__background" src="{{'hp-background.png' | asset_img_url: 'master'}}" />
+</div>
+
+{% schema %}
+{
+ "name": "Ritual section",
+ "settings" : [
+   {
+       "type": "text",
+       "id": "section_heading",
+       "label": "Please Enter Section Heading",
+       "default": "Our Rituals"
+   },
+   {
+    "type": "text",
+    "id": "section_subheading-text",
+    "label": "Please Enter Section Subheading",
+    "default": "SHOP BESTSELLERS"
+   },
+   {
+    "type": "url",
+    "id": "section_subheading-url",
+    "label": "Please Select Page or Enter url for subheading"
+   }
+ ]
+}
+{% endschema %}

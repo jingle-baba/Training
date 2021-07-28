@@ -1,0 +1,6 @@
+:root {
+    --body-text: rem(13px);
+    @include above ('tablet-large') {
+        --body-text: rem(14px);
+    }
+}

@@ -1,0 +1,61 @@
+@import 'header-login';
+@import 'navigation';
+@import 'mobile-navigation';
+@import 'header-search';
+@import 'megamenu';
+
+
+$component: ".header";
+
+#{$component} {
+  background-color: color('primary');
+  position: relative;
+  z-index:11;
+  @include padding(rem(14px),0,rem(14px),0);
+
+  @include above('desktop') {
+    @include padding(0, rem(35px), 0, rem(35px));
+  }
+
+  .row {
+    justify-content: space-between;
+    
+    @include above('desktop') {
+     flex-wrap: nowrap;
+    }
+  }
+}
+
+#{$component}__desktop {
+  display: none;
+ }
+
+ #{$component}__mobile {
+  display: block;
+  min-width: rem(24px);
+  
+  @include margin(null, null, null, rem(8px));
+ }
+
+ #{$component}__login {
+
+  @include below ('desktop') {
+
+   @include margin(0, 0, 0, 0);
+   @include padding (0,rem(2px),0,0)
+  }
+
+ }
+
+@include above('desktop'){ 
+
+  #{$component}__desktop {
+    display: block
+  }
+
+  #{$component}__mobile {
+    display: none;
+   }
+}
+
+

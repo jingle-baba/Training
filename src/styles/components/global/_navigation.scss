@@ -1,0 +1,43 @@
+$component: ".nav";
+
+#{$component}__menu {
+  margin: 0;
+  padding: 0;
+  display: none;
+  transform: translateZ(0);
+
+  @include above('tablet') {
+    display: flex;
+  }
+}
+
+#{$component}__item {
+  @include margin(0, rem(20px), 0, 0);
+
+  &:last-child {
+     @include margin(0, 0, 0, 0)
+  }
+}
+
+#{$component}__link {
+
+  @include use-text-style('navigation');
+
+  @include padding(rem(35px), rem(20px) , rem(35px), rem(20px));
+  letter-spacing: 1px;
+  color: color('white');
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  display: inline-block;
+  
+  &:hover {
+    color: color('white');
+    border-color: color('secondary');
+  }
+}
+
+#{$component}__dropdown {
+  position: relative;
+  left: rem(-16px);
+}

@@ -1,0 +1,7 @@
+development:
+  password: 05a76dae4179acf617e03588c87ac942
+  theme_id: "120369676322"
+  store: jinglebaba.myshopify.com
+  directory: dist/
+  ignore_files:
+    - config/settings_data.json

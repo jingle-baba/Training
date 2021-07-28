@@ -1,0 +1,19 @@
+$component: ".section";
+#{$component}__head {
+    text-align: center;
+}
+
+#{$component}__heading {
+    @include font-family('ivy');
+    font-size: rem(32px);
+    letter-spacing: rem(1.5px);
+    line-height: 48px;
+    color: color('primary');
+    @include margin(null,null, rem(14px),null);
+
+    @include above('desktop') {
+        font-size: rem(48px);
+        line-height:rem(64px);
+        @include margin(null,null,rem(30px),null)
+    }
+}

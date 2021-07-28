@@ -1,0 +1,18 @@
+<nav class="nav" role="navigation">
+    <ul class="nav__menu">
+        {% for link in linklists[section.settings.menu].links %}
+        <li class="nav__item">
+            <a class="nav__link" href="{{ link.url }}" data-src="{{link.title | strip | downcase}}">{{ link.title }}</a>
+            {% assign link_title = link.title | strip | downcase %}
+            {% for data in blockData %}
+            {% assign title = data | strip | downcase | split: "," | first %}
+            {% if title == link_title %}
+              <img src="{{ 'caret-down.svg' | asset_url }}" class="nav__dropdown" alt="{{ shop.name }}" itemprop="logo">
+            {% endif %}
+          {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+
+

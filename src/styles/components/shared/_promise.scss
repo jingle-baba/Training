@@ -1,0 +1,162 @@
+$component: ".promise";
+
+#{$component} {
+    @include padding(rem(48px),rem(16px),null,rem(15px));
+    @include above('tablet') {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+    }
+    @include above('desktop') {
+        gap:16px;
+        align-items: flex-start;
+        @include padding(0,0,0,0);
+        @include margin(rem(140px),0,0,0);
+    }
+    @include above('desktop-large') {
+        gap: rem(80px);
+    }
+
+}
+
+#{$component}__title {
+    font-size: rem(22px);
+    @include font-family('ivy');
+    line-height:rem(40px);
+    letter-spacing: 1px;
+    
+    &--desktop {
+        display: none;
+    }
+    @include above ('tablet') {
+        font-size: rem(28px);
+        line-height:rem(45px);
+        letter-spacing: 1px;
+        &--mobile {
+            display: none;
+        }
+
+        &--desktop {
+            display: block;
+        }
+    }
+
+    @include above ('tablet-large') {
+        font-size: 3.42857rem;
+        line-height: 4.85714rem;
+        letter-spacing: .5px;
+    }
+
+    @include above ('desktop') {
+        font-size: rem(63px);
+        letter-spacing: 2px;
+        line-height: rem(96px);
+    }
+
+  
+}
+
+#{$component}__media {
+    max-width: 240px;
+    @include margin(null,rem(-15px),null,auto);
+
+    @include above('tablet') {
+        max-width: 300px;
+        width: 100%;
+        @include margin(0,0,0,0);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    @include above('tablet-large') {
+        max-width: 50%;
+    }
+
+    @include above('desktop') {
+            max-width: rem(600px);
+            img {
+                max-height:rem(900px);
+                object-fit:cover;
+            }
+    }
+}
+
+#{$component}__items {
+    max-width: rem(288px);
+    @include margin(rem(40px),0,0,0);
+
+    @include above('tablet-large') {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 55px;
+        @include margin(rem(80px),0,0,0);
+    }
+
+    @include above('desktop') {
+        gap: 63px;
+        @include padding(0,rem(30px),0,rem(30px));
+        margin-top:8.7rem;
+    }
+}
+
+#{$component}__icon {
+    display: flex;
+    gap: rem(16px);
+    @include margin(null,null,rem(40px),null);
+
+    @include above('tablet-large') {
+        @include margin(0,0,0,0);
+        flex-direction: column;
+        gap: 1.14286rem;
+        text-align: center;
+        align-items: center;
+        max-width: 140px;
+    }
+
+    @include above('desktop') {
+        max-width: 160px;
+    }
+}
+
+#{$component}__iconHeader {
+    @include margin ( 0, 0, 0, 0);
+    letter-spacing: 0.5px;
+    line-height: rem(16px);
+
+    @include above('desktop') {
+        font-size: rem(16px);
+        letter-spacing:1px;
+        line-height: 20px;
+    }
+}
+
+#{$component}__mediaCaption {
+    font-size: rem(12px);
+    font-weight: 300;
+    line-height: rem(16px);
+    @include margin(rem(8px),0,0,0);
+
+    @include above ('desktop') {
+        text-align: right;
+    }
+}
+
+#{$component}__iconLink {
+    @include above('tablet-large') {
+        @include margin(rem(20px),null,null,null);
+    }
+
+    @include above('desktop') {
+       @include margin(rem(40px),null,null,null);
+    }
+}
+
+#{$component}__row {
+
+    @include above ('desktop') {
+        max-width: rem(600px);
+    }
+}

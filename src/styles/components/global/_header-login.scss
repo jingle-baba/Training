@@ -1,0 +1,61 @@
+$component: ".header-login";
+
+#{$component} {
+  @include flex(null, center, flex-end, nowrap);
+}
+
+#{$component}__item {
+  @include use-text-style('navigation');
+  @include padding(0.3rem, 0.5rem, 0, 0.5rem);
+  @include flex(null, center, center, nowrap);
+
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+
+  &:last-child {
+     @include margin(0, 0, 0, 0)
+  }
+  
+  @include above('mobile-large') {
+    @include padding(0.5rem, 1rem, 0.5rem, 1rem);
+  }
+  
+  @include above ('tablet-large') {
+   @include margin(0, rem(20px), 0, 0);
+  }
+}
+
+.mobile-menu {
+  @include above('tablet-large') {
+    display: none;
+  }
+}
+
+.customer {
+  @include below('tablet-large') {
+    display: none;
+  }
+}
+
+.basket {
+  text-decoration: none;
+  display: flex;
+  position: relative;
+
+  &__count {
+    @include flex(null, center, center, nowrap);
+
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: color('light-red');
+    color: white;
+    font-size: 10px;
+  }
+}
+

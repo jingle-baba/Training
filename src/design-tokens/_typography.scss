@@ -1,0 +1,102 @@
+/// @access private
+/// @link https://www.oddbird.net/accoutrement/docs/type.html
+
+
+/// Defined fonts
+$fonts: (
+  'wotfard': (
+    'name': 'wotfard',
+    'formats': 'woff2',
+    'stack': (
+      'Arial',
+      sans-serif,
+    ),
+    'normal': 'wotfard-regular',
+    '300': 'wotfard-light',
+    '500': 'wotfard-medium',
+  ),
+  'ivy': (
+    'name': 'ivy',
+    'formats': 'woff2',
+    'stack': (
+      'Arial',
+      sans-serif,
+    ),
+    '300': 'IvyMode-Light',
+  ),
+  'primary': '#wotfard',
+  'secondary': '#ivy'
+);
+
+// Import all local fonts
+ @include import-webfonts;
+
+$typography: (
+  'body': (
+    'font': '#primary',
+    'size': var(--body-text),
+    'height': 24px,
+    'weight': normal,
+    'space': 0
+  ),
+  'heading': (
+    'font': '#secondary',
+    'weight': 300,
+  ),
+  'heading-1': (
+    'size': size('h1'),
+    'height': 96px,
+    'space': 2px
+  ),
+  'heading-2': (
+    'size': size('h2')
+  ),
+  'heading-3': (
+    'size': size('h3')
+  ),
+  'heading-4': (
+    'size': size('h4')
+  ),
+  'paragraph': (
+    'size': size('text'),
+    'height': 1.5
+  ),
+  'buttons': (
+    'size': size('text'),
+    'height': 16px,
+    'weight': 400
+  ),
+  'button-primary': (),
+  'button-secondary': (),
+  'navigation': (
+    'size': 13px,
+    'space': 1px
+  )
+);
+
+/// Set text style.
+/// @param {string} $token - One of keys of $typography map above.
+
+@mixin use-text-style($token: 'body') {
+  $type: get-token($typography, $token);
+
+  @if (get-token($type, 'font') != 'font') {
+    font-family: font-family(get-token($type, 'font'));
+  }
+
+  @if (get-token($type, 'size') != 'size') {
+    font-size: get-token($type, 'size');
+  }
+
+  @if (get-token($type, 'weight') != 'weight') {
+    font-weight: get-token($type, 'weight');
+  }
+
+  @if (get-token($type, 'height') != 'height') {
+    line-height: get-token($type, 'height');
+  }
+
+  @if (get-token($type, 'spacing') != 'spacing') {
+    letter-spacing: get-token($type, 'spacing') * 1rem / 10;
+  }
+}

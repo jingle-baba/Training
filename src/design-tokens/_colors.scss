@@ -1,0 +1,55 @@
+// Link to source
+/// @link https://www.oddbird.net/accoutrement/docs/color.html
+
+// *** Color palette *** //
+
+$colors: (
+  // Set explicit colors
+  'mink': #2E261C,
+  'orange' : #C65238,
+  'white' : #fff,
+  //Lighter
+  'light-mink': #242019,
+  'light-orange': #EACCC3,
+);
+
+// Use color names that define the purpose of the color.
+// Example: primary or highlight or light-background
+$primary-colors: (
+  'primary': '#mink',
+  'primary-100': '#link-mink'
+);
+
+$secondary-colors: (
+  'secondary': '#orange',
+  'secondary-100': '#light-orange',
+);
+
+$text-colors: (
+  'text': '#primary',
+  'link': '#primary',
+  'link-hover': '#primary'
+);
+
+$button-colors: (
+  'button': '#primary',
+  'button-hover': '#primary',
+  'button-secondary': '#secondary',
+  'button-secondary-hover': '#secondary',
+  'button-disable': '#grey'
+);
+
+// Merge everything into the main $colors map…
+@include add-colors(
+  $colors,
+  $primary-colors,
+  $secondary-colors,
+  $text-colors,
+  $button-colors
+);
+
+// Example of usage
+// .example {
+//   color: color('grey');
+//   background-color: color('light-grey');
+// }

@@ -1,0 +1,109 @@
+<nav class="mobile-nav" id="navigation" role="navigation">
+    <div class="mobile-nav__holder">
+        <ul class="mobile-nav__menu">
+            {% for link in linklists[section.settings.menu].links %}
+              <li class="mobile-nav__item">
+                  <a class="mobile-nav__link" href="{{ link.url }}">{{ link.title }}</a>
+                  {% assign link_title = link.title | strip | downcase %}
+                  {% for block in section.blocks %}
+                  {% assign title = block.settings.mega-primary-select | strip | downcase %}
+                  {% if title == link_title %}
+                    <ul class="mobile-nav__menu mobile-nav__menu--child">
+
+                          {% if block.settings.Menu-heading-1 != '' %}
+                            <li class="mobile-nav__item mobile-nav__item-child megamenu-content">
+                              <a class="mobile-nav__link mobile-nav__link--child" href="#">{{ block.settings.Menu-heading-1 }}
+                                <img src="{{'chevron-right.png' | asset_img_url: 'medium'}}" alt="" />
+                              </a>
+                              <ul class="mobile-nav__subnav subnav">
+                          {% endif %}
+                          {% for link in linklists[block.settings.mega-menu-1].links %}
+                                  <li class="{% if block.settings.Menu-heading-1 != '' %}subnav__item {% else %}mobile-nav__item mobile-nav__item-child {%endif%}">
+                                    <a class="{% if block.settings.Menu-heading-1 != '' %}subnav__link{% else %}mobile-nav__link mobile-nav__link--child {% endif %}" href="{{ link.url }}">{{link.title}}</a>
+                                  </li>
+                          {% endfor %}
+                          {% if block.settings.Menu-heading-1 != '' %}
+                          </ul>
+                          </li>
+                          {% endif %} <!--End of block-->
+
+                          {% if block.settings.Menu-heading-2 != '' %}
+                            <li class="mobile-nav__item mobile-nav__item-child megamenu-content">
+                              <a class="mobile-nav__link mobile-nav__link--child" href="#">{{ block.settings.Menu-heading-2 }}
+                                <img class="mobile-nav__icon" src="{{'chevron-right.svg' | asset_url }}" alt="" />
+                              </a>
+                              <div class="subnav">
+                                <div class="subnav__close">
+                                  <img class="mobile-nav__icon mobile-nav__icon--close" src="{{'chevron-right.svg' | asset_url }}" alt="" />
+                                  <p class="subnav__text">Back</p>
+                              </div>
+                              <ul class="subnav__list">
+                                <li><a class="subnav__title" href="#">{{ block.settings.Menu-heading-2 }}</a></li>
+                            {% endif %}
+                            {% for link in linklists[block.settings.mega-menu-2].links %}
+                                    <li class="subnav__item"><a class="subnav__link" href="{{ link.url }}">{{link.title}}</a></li>
+                            {% endfor %}
+                            {% if block.settings.Menu-heading-2 != '' %}
+                            </ul>
+                            </div>
+                            </li>   
+                            {% endif %} <!--End of block-->
+
+                            {% if block.settings.Menu-heading-3 != '' %}
+                            <li class="mobile-nav__item mobile-nav__item-child megamenu-content">
+                              <a class="mobile-nav__link mobile-nav__link--child" href="#">{{ block.settings.Menu-heading-3 }}
+                                <img class="mobile-nav__icon" src="{{'chevron-right.svg' | asset_url }}" alt="" />
+                              </a>
+                              <div class="subnav">
+                                <div class="subnav__close">
+                                  <img class="mobile-nav__icon mobile-nav__icon--close" src="{{'chevron-right.svg' | asset_url }}" alt="" />
+                                  <p class="subnav__text">Back</p>
+                              </div>
+                              <ul class="subnav__list">
+                                <li><a class="subnav__title" href="#">{{ block.settings.Menu-heading-3 }}</a></li>
+                            {% endif %}
+                            {% for link in linklists[block.settings.mega-menu-3].links %}
+                                    <li class="subnav__item"><a class="subnav__link" href="{{ link.url }}">{{link.title}}</a></li>
+                            {% endfor %}
+                            {% if block.settings.Menu-heading-3 != '' %}
+                            </ul>
+                            </div>
+                            </li>
+                            {% endif %} <!--End of block-->
+
+                            {% if block.settings.Menu-heading-4 != '' %}
+                            <li class="mobile-nav__item mobile-nav__item-child megamenu-content">
+                              <a class="mobile-nav__link mobile-nav__link--child" href="#">{{ block.settings.Menu-heading-4 }}
+                                <img class="mobile-nav__icon" src="{{'chevron-right.svg' | asset_url }}" alt="" />
+                              </a>
+                              <div class="subnav">
+                                <div class="subnav__close">
+                                  <img class="mobile-nav__icon mobile-nav__icon--close" src="{{'chevron-right.svg' | asset_url }}" alt="" />
+                                  <p class="subnav__text">Back</p>
+                              </div>
+                              <ul class="subnav__list">
+                                <li><a class="subnav__title" href="#">{{ block.settings.Menu-heading-4 }}</a></li>
+                            {% endif %}
+                            {% for link in linklists[block.settings.mega-menu-4].links %}
+                                    <li class="subnav__item"><a class="subnav__link" href="{{ link.url }}">{{link.title}}</a></li>
+                            {% endfor %}
+                            {% if block.settings.Menu-heading-4 != '' %}
+                            </ul>
+                            </div>
+                            </li>
+                            {% endif %} <!--End of block-->
+
+                    </ul>
+                  {% endif %} 
+                  {% endfor %}
+              </li>
+             {% endfor %}
+              </ul>
+        {% comment %}
+        Mobile sections contains:
+        - Customer information
+        - Search
+        {% endcomment %}
+    </div>
+</nav>
+<div class="overlay"></div>

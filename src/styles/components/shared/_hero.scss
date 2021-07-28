@@ -1,0 +1,101 @@
+
+
+$component : ".hero"; 
+
+#{$component}__container {
+  padding:0;
+}
+
+#{$component}__row {
+  align-items: flex-start;
+} 
+
+#{$component}__col {
+  &--image {
+    display: none;
+
+    @include above ('desktop') {
+      display: block;
+      position: relative;
+      margin-top: -15.71rem;
+    }
+  }
+
+  &--text {
+    padding: 0 rem(13px);
+    margin-top: rem(28px);
+    
+    @include above('desktop') {
+      margin-top: 48px;
+      padding: 0;
+      min-width: 75%;
+    } 
+  }
+}
+
+#{$component}__buttons {
+  margin-top: rem(8px);
+  display: flex;
+  gap: rem(16px);
+
+  .btn {
+    line-height: 1px;
+  }
+
+  .btn-secondary {
+    display: none;
+  }
+
+  @include above('desktop') {
+    gap: rem(32px);
+
+    .btn-secondary {
+      display: block;;
+    }
+  }
+}
+
+#{$component}__link {
+  text-transform: uppercase;
+  align-self: center;
+
+  @include above ('desktop') {
+    display:none;
+  }
+}
+
+
+#{$component}__heading {
+  display: inline-block;
+  line-height: initial;
+  
+  @include below('desktop') {
+    font-size: rem(36px);
+    letter-spacing: rem(1.5px);
+  }
+}
+
+#{$component}__subheading {
+  @include font-family('wotfard');
+  font-size: rem(14px);
+  line-height: 1rem;
+  letter-spacing: .5px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: rem(6px);
+  @include above('desktop') {
+    letter-spacing: rem(2px);
+    line-height: rem(24px);
+    font-size: rem(20px);
+  }
+}
+
+#{$component}__image {
+  text-align: center;
+}
+
+#{$component}__cover {
+  img {
+    width: 100%;
+  }
+}
