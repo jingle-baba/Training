@@ -238,6 +238,9 @@ $copyright: ".copyright";
   line-height: rem(24px);
   color: #B1A7A2;
   text-decoration: none;
+  &:hover {
+    color: #EACCC3;
+  }
 }
 
 #{$footerNav}__items {

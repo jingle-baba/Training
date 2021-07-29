@@ -10,7 +10,13 @@ $component : ".hero";
   align-items: flex-start;
 } 
 
+#{$component}__banner {
+  width: 100%;
+}
+
+
 #{$component}__col {
+
   &--image {
     display: none;
 

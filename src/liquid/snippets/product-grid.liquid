@@ -1,60 +1,28 @@
 
    <div class="productGrid swiper-container">
         <div class="swiper-wrapper productGrid__items">
-            <div class="product swiper-slide">
-                <div class="product__image">
-                    <img src="{{'image-product.png' | asset_img_url:'master'}}" alt="Product image" />
-                </div>
-                <div class="product__desc">
-                    <div class="product__star"></div>
-                    <div class="product__info">
-                        <p class="product__title">calm <span class="product__title product__title--regular">| PURE RADIANCE OIL</span></p>
-                        <p class="product__text">Skin-transforming moisturizing face oil.</p>
+            {% for block in section.blocks %}
+                <div class="productgrid__slide swiper-slide">
+                    <div class="productgrid__image">
+                        {% include 'responsive-image' with image: block.settings.product_image, max_width: 750, max_height: 750 %}
+                        <!-- <img src="{{'image-product.png' | asset_img_url:'master'}}" alt="Product image" /> -->
                     </div>
-                    <a class="product__cart link link--default">
-                        ADD TO BAG 
-                        <span class="price-divider">—</span>
-                        <span class="product__price">$0</span>
-                        <span class="product__price product__price--cross"> $0</span>
-                    </a>
-                </div>
-            </div>
-            <div class="product swiper-slide">
-                <div class="product__image">
-                    <img src="{{'image-product.png' | asset_img_url:'master'}}" alt="Product image" />
-                </div>
-                <div class="product__desc">
-                    <div class="product__star"></div>
-                    <div class="product__info">
-                        <p class="product__title">calm <span class="product__title product__title--regular">| PURE RADIANCE OIL</span></p>
-                        <p class="product__text">Skin-transforming moisturizing face oil.</p>
+                    <div class="productgrid__desc">
+                        <div class="productgrid__star"></div>
+                        <div class="productgrid__info">
+                            <p class="productgrid__title">{{block.settings.product_title-left}} <span class="productgrid__title productgrid__title--regular">| {{block.settings.product_title-right}}</span></p>
+                            <p class="productgrid__text">{{block.settings.product_text}}</p>
+                        </div>
+                        <a class="productgrid__cart link link--default">
+                            ADD TO BAG 
+                            <span class="pricegrid-divider">—</span>
+                            <span class="productgrid__price">${{block.settings.product_price}}</span>
+                            <span class="productgrid__price productgrid__price--cross"> ${{block.settings.product_cross}}</span>
+                        </a>
                     </div>
-                    <a class="product__cart link link--default">
-                        ADD TO BAG 
-                        <span class="price-divider">—</span>
-                        <span class="product__price">$0</span>
-                        <span class="product__price product__price--cross"> $0</span>
-                    </a>
                 </div>
-            </div>
-            <div class="product swiper-slide">
-                <div class="product__image">
-                    <img src="{{'image-product.png' | asset_img_url:'master'}}" alt="Product image" />
-                </div>
-                <div class="product__desc">
-                    <div class="product__star"></div>
-                    <div class="product__info">
-                        <p class="product__title">calm <span class="product__title product__title--regular">| PURE RADIANCE OIL</span></p>
-                        <p class="product__text">Skin-transforming moisturizing face oil.</p>
-                    </div>
-                    <a class="product__cart link link--default">
-                        ADD TO BAG 
-                        <span class="price-divider">—</span>
-                        <span class="product__price">$0</span>
-                        <span class="product__price product__price--cross"> $0</span>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
+
         </div>
         <div class="productGrid__pagination pagination">
             <div class="pagination__fraction">

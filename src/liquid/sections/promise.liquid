@@ -1,10 +1,8 @@
 <div class="promise">
     <h1 class="promise__title promise__title--mobile">Get gorgeous skin with natural-biocompatible skincare that works.</h1>
     <div class="promise__media">
-        <picture>
-            <source media="(min-width:1025px)" srcset="{{'image-promise-desktop.png' | asset_url}}" >
-            <img src="{{'image-promise.png' | asset_url}}" alt="" style="width:auto;">
-          </picture>
+  
+          {% include 'responsive-image' with image: section.settings.desktop_image, max_width: 875, max_height: 1107 %}
         <p class="promise__mediaCaption">Olivia Wilde, Actor & Filmmaker</p>
     </div>
     <div class="promise__row">
@@ -34,3 +32,16 @@
        </div>
     </div>
 </div>
+
+{% schema %}
+{
+ "name": "promise section",
+ "settings": [
+   {
+       "type": "image_picker",
+       "id": "desktop_image",
+       "label": "Please select side image"
+   }
+ ]
+}
+{% endschema %}
