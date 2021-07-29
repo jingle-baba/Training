@@ -1,70 +1,333 @@
-.site-footer {
-  @include padding(2rem, null, 2rem, null);
-  @include margin(4rem, null, null, null);
+$component: ".footer";
+$newsletter: ".newsletter";
+$social: ".social";
+$footerNav: ".footerNav";
+$copyright: ".copyright";
 
-  border-top: 0.1rem solid color('grey');
-  background-color: white;
+.big-text {
+  font-size: rem(15px);
+  line-height: rem(24px);
+}
 
-  .row {
-    align-items: baseline;
+.small-text {
+  font-size: rem(11px);
+  line-height: rem(14px);
+}
+
+#{$component} {
+  @extend .big-text;
+  background: color('mink');
+  font-weight: 300;
+  color: #B1A7A2;
+  @include padding(null, null, rem(48px), null);
+
+  @include above('mobile-large') {
+    @include padding(rem(40px),null,rem(40px),null);
+  }
+
+  @include above('tablet') {
+    @include padding(rem(80px),null,rem(80px),null);
   }
 }
 
-.terms {
+#{$component}__container {
+  @include above ('mobile-large') {
+    padding: 0 64px;
+    max-width: rem(740px);
+  }
+
+  @include above('tablet') {
+      padding: 0 120px;
+      max-width: rem(850px);
+  }
+
+  @include above ('tablet-large') {
+      max-width: rem(920px);
+      padding: 0 100px;
+  }
+
+  @include above('desktop') {
+      max-width: rem(1060px);
+  }
+
+  @include above('desktop-large') {
+    padding: 0 120px;
+    max-width: 102.71rem;
+  }
+
+}
+
+
+#{$component}__logo {
+  @include padding (rem(48px),null,rem(48px),null);
   text-align: center;
-  font-size: 0.9rem;
-
-  @include above('tablet-large') {
-    text-align: right;
+  img {
+    max-width: 52px;
   }
 
-  .txt {
-    margin-bottom: 0.5rem;
+  @include above('tablet-large') {
+    @include padding (0,0,0,0);
   }
 }
 
-.footer-nav {
-  justify-content: center;
-  padding: 0;
-  margin: 0;
+#{$component}__heading {
+   @extend .big-text;
+   color: #EACCC3;
+   font-weight: 500;
+   @include margin(null,null,rem(12px),null);
+   display: inline-block;
+}
+
+#{$component}__row {
+  @include above('mobile-large') {
+    display: flex;
+    gap: rem(40px);
+  }
+
+  @include above('tablet') {
+    gap: rem(60px); 
+  }
+
 
   @include above('tablet-large') {
-    justify-content: right;
+    gap: rem(80px);
   }
-  li {
+
+  @include above('desktop') {
+     gap: rem(120px);
+  }
+}
+
+#{$component}__items {
+  @include above('tablet-large') {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include margin(rem(54px),0,0,0);
+  }
+
+  @include above('desktop-large') {
+    max-width: 655px;
+    @include margin(0,0,0,0);
+  }
+}
+
+#{$component}__body {
+
+  @include above('tablet') {
+    max-width: 28rem;
+  }
+
+  @include above('tablet-large') {
+    max-width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    width: 100%;
+  }
+}
+
+//newsletter
+#{$newsletter} {
+  @include above('tablet-large') {
+    max-width: rem(320px);
+  }
+  @include above('desktop') {
+    max-width: 416px;
+  }
+
+ }
+
+#{$newsletter}__linebreaker {
+  display: block;
+  @include above('tablet') {
     display: inline-block;
   }
-  a {
-    font-size: 0.9rem;
-    color: color('text');
-    text-decoration: none;
 
-    &:hover {
-      color: color('text');
-      text-decoration: none;
+  @include above('tablet-large') {
+    display: block;
+  }
+
+  @include above('desktop') {
+    display: inline-block;
+  }
+}
+
+#{$newsletter}__form {
+  display: block;
+  width: 100%;
+  position: relative;
+  
+}
+
+#{$newsletter}__text {
+  @extend .big-text;
+  width: 100%;
+  padding-bottom:rem(6px);
+  border-bottom: 1px solid;
+  outline: none;
+  &::placeholder {
+    color: #B1A7A2;
+  }
+}
+
+#{$newsletter}__submit {
+  @extend .small-text;
+  position: absolute;
+  padding:0;
+  width: rem(36px);
+  letter-spacing: rem(1px);
+  font-weight: 500;
+  right:0;
+  color: #EACCC3;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+#{$newsletter}__desc {
+  @extend .small-text;
+  @include margin(rem(16px),null,0,null);
+  font-weight: 300;
+}
+
+//social
+
+#{$social} {
+  @include padding(rem(40px),null,rem(40),null);
+
+  @include above('tablet-large') {
+    // max-width: rem(280px);
+    @include padding(0,0,0,0)
+  }
+
+  @include above ('desktop-large') {
+    order:2;
+    width: 100%;
+
+  }
+}
+
+#{$social}__items {
+  display: flex;
+  gap: 40px;
+}
+
+
+//footer-nav
+
+#{$footerNav} {
+ @include margin(null, null,rem(32px), null);
+}
+
+
+
+#{$footerNav}__title {
+  @extend .big-text;
+  font-weight: 500;
+  color: #EACCC3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+#{$footerNav}__link {
+  font-size: rem(14px);
+  font-weight: 300;
+  line-height: rem(24px);
+  color: #B1A7A2;
+  text-decoration: none;
+}
+
+#{$footerNav}__items {
+  list-style: none;
+  display: grid;
+  margin-bottom: 0;
+  column-gap: rem(32px);
+  padding: 0;
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+
+  @include margin (rem(16px),0,0,0);
+
+  #{$footerNav}:first-child & {
+    grid-template-columns: repeat(2,minmax(auto,6.92rem));
+  }
+
+  &.active {
+   @include padding(rem(8px),0,0,0);
+   max-height: 500px;
+   transition: max-height 0.25s ease-in;
+  }
+
+  @include above('tablet-large') {
+
+    #{$footerNav}:first-child & {
+      grid-template-columns: repeat(2,150px);
     }
+
+    max-height: 100%;
+
+  }
+
+}
+
+#{$footerNav}__menu {
+  margin-bottom:rem(8px);
+}
+
+#{$footerNav}__icon {
+  @include above('tablet-large') {
+    display: none;
   }
 }
 
-.text-holder {
-  font-size: 14px;
-  line-height: 1.5;
-  max-width: 40rem;
-  text-align: center;
-  margin: 0 auto 1rem;
+//copyright
+
+#{$copyright} {
+  @include margin(rem(40px),null ,null, null);
 
   @include above('tablet-large') {
-    text-align: left;
-    margin: 0;
+    display: flex;
+    gap: 40px;
+  }
+
+  @include above('desktop-large') {
+    order: 4;
   }
 }
 
-.copyrights {
-  @include margin(0.5rem, null, null, null);
+#{$copyright}__text {
+  @extend .small-text;
+  font-weight: 300;
+  
+  @include above('tablet-large') {
+    font-size: 14px;
+    @include margin(0,0,0,0);
+  }
+}
 
-  text-align: center;
+#{$copyright}__row {
+  display:flex;
+  gap:40px;
+  @include margin(rem(24px),null,null,null);
 
   @include above('tablet-large') {
-    text-align: right;
+    @include margin(0,0,0,0);
   }
 }
+
+#{$copyright}__link {
+  @extend .small-text;
+  font-weight: 400;
+  color: #B1A7A2;
+
+  @include above('tablet-large') {
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
+
+

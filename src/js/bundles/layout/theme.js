@@ -9,6 +9,7 @@ import 'lazysizes/plugins/rias/ls.rias';
 import 'lazysizes/plugins/bgset/ls.bgset';
 import 'lazysizes';
 import 'lazysizes/plugins/respimg/ls.respimg';
+import footerNav from '../components/footer-nav';
 
 import 'Styles/layout/theme.scss';
 
@@ -21,11 +22,13 @@ mobileNavigation()
 headerSearch()
 ajaxSearch()
 showMegaMenu();
+footerNav();
 
 window.headerSearch.init();
 window.mobileNavigation.init();
 window.ajaxSearch.init();
 window.showMegaMenu.init();
+window.footerNav.init();
 
 window.addEventListener('DOMContentLoaded',() => {
  swiper;

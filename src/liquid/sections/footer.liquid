@@ -9,32 +9,148 @@ Theme Store optional settings:
 
 {%- endcomment -%}
 
-<footer class="site-footer">
+<footer class="footer">
 
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="text-holder">The statements made on this website have not been evaluated by the FDA (U.S. Food & Drug Administration). The products sold on this website are not intended to diagnose, treat, cure, or prevent any disease. The information provided by this website or this company is not a substitute for a face-to-face consultation with your physician, and should not be construed as individual medical advice.</div>        
+  <div class="container footer__container">
+    <div class="footer__row">
+      <div class="footer__logo">
+        <img src="{{'b.png' | asset_url}}" />
       </div>
-      <div class="col">
-        <div class="terms">
-          <div class="txt"><strong>Accessibility Tool</strong></div>
-          <div class="txt"><span>Do Not Sell My Personal Information</span></div>
-          {%- assign footer_linklist = section.settings.footer_linklist -%}
-          {% if linklists[footer_linklist].links.size > 0 %}
-            <ul class="footer-nav">
-              {% for link in linklists[footer_linklist].links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li> /
-              {% endfor %}
-            </ul>
-          {% endif %}
-          <div class="copyrights">
-            <small>Copyright &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }}. All rights reserved.</small>
-          </div>
-        </div>   
+      <div class="footer__body">
+
+        <div class="footer__newsletter newsletter">
+              <p class="footer__heading">
+                Sign Up for Offers,<span class="newsletter__linebreaker"></span>
+                Product News, and Tips
+              </p>
+              <form class="newsletter__form">
+                <input type="text" class="newsletter__text" placeholder="Enter your phone or email" />
+                <button type="submit" class="newsletter__submit">SEND</button>
+               </form>
+               <p class="newsletter__desc">
+                 By subscribing to True Botanicals Text Alerts you consent to receive a varying number of
+                  marketing messages via automated technology and agree 
+                  to the terms and conditions. Message and data rates may apply.
+                  Reply HELP for help or STOP to opt-out.
+               </p>
+        </div>
+
+         <div class="footer__social social">
+             <p class="social__heading footer__heading">
+               Follow Us
+             </p>
+             <div class="social__items">
+                <div class="social__icon">
+                  {% render 'icon-ig' %}
+                </div>
+                <div class="social__icon">
+                  {% render 'icon-fb' %}
+                </div>
+                <div class="social__icon">
+                  {% render 'icon-pt' %}
+                </div>
+                <div class="social__icon">
+                  {% render 'icon-tw' %}
+                </div>
+                <div class="social__icon">
+                  {% render 'icon-yt' %}
+                </div>
+             </div>
+         </div>
+
+         <div class="footer__items">
+
+            <div class="footer__menu footerNav">
+              <p class="footerNav__title">Shop <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
+                <ul class="footerNav__items">
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                </ul>
+            </div>
+
+            <div class="footer__menu footerNav">
+              <p class="footerNav__title">Shop <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
+                <ul class="footerNav__items">
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                </ul>
+            </div>
+
+            <div class="footer__menu footerNav">
+              <p class="footerNav__title">Shop <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
+                <ul class="footerNav__items">
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                  <li class="footerNav__menu">
+                    <a href="#" class="footerNav__link">Cleansers</a>
+                  </li>
+                </ul>
+            </div>
+         </div>
+
+         <div class="footer__copyright copyright">
+            <p class="copyright__text">© 2021 True Botanicals. All Rights Reserved.</p>
+            <div class="copyright__row">
+              <a class="copyright__link" href="#">Terms of Use</a>
+              <a class="copyright__link" href="#">Privacy Policy</a>
+            </div>
+         </div>
       </div>
     </div>
   </div>
+</div>
+  
   
 </footer>
 
