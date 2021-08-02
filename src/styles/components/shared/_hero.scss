@@ -40,7 +40,7 @@ $component : ".hero";
 }
 
 #{$component}__buttons {
-  margin-top: rem(8px);
+  margin-top: rem(24px);
   display: flex;
   gap: rem(16px);
 
@@ -72,12 +72,13 @@ $component : ".hero";
 
 
 #{$component}__heading {
-  display: inline-block;
-  line-height: initial;
-  
-  @include below('desktop') {
-    font-size: rem(36px);
-    letter-spacing: rem(1.5px);
+  font-size: rem(40px);
+  letter-spacing: rem(1.5px);
+  line-height: rem(56px);
+
+  @include above('desktop') {
+    display: inline-block;
+    line-height: initial;
   }
 }
 

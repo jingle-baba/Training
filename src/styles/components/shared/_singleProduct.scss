@@ -1,15 +1,15 @@
-$component: ".productgrid";
+$component: ".singleProduct";
 
 #{$component}__desc {
  @include margin(rem(14px),0,0,0);
 }
 
 #{$component}__title {
-    font-size: 13px;
+    font-size: rem(13px);
     color: color('primary');
     font-weight: 500;
     letter-spacing: 0.5px;
-    line-height: 15px;
+    line-height: rem(15px);
     @include margin(0,0,rem(4px),0);
     
     &--regular {

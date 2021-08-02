@@ -11,7 +11,7 @@ $child-component: ".pagination";
 }
 
 #{$component}__row {
-    @include margin(rem(38px),auto,0,auto);
+    @include margin(rem(40px),auto,0,auto);
     max-width: rem(1008px);
    @include above ('tablet-large') {
     @include margin(rem(64px),auto,0,auto);
@@ -75,11 +75,11 @@ $child-component: ".pagination";
 
 #{$component}__background {
     position: absolute;
-    width: 100%;
+    width: 50%;
+    -o-object-fit: cover;
     object-fit: cover;
     top: -258px;
-    left: 0;
-    max-height: 100%;
-    z-index:-1;
+    right: 0;
+    z-index: -1;
 }
 

@@ -1,35 +1,44 @@
 <div class="promise">
-    <h1 class="promise__title promise__title--mobile">Get gorgeous skin with natural-biocompatible skincare that works.</h1>
-    <div class="promise__media">
-  
-          {% include 'responsive-image' with image: section.settings.desktop_image, max_width: 875, max_height: 1107 %}
-        <p class="promise__mediaCaption">Olivia Wilde, Actor & Filmmaker</p>
-    </div>
+    {% if section.settings.heading != blank %}
+      <h1 class="promise__title promise__title--mobile">{{section.settings.heading}}</h1>
+    {% endif %}
+
+    {% if section.settings.desktop_image %}
+        <div class="promise__media">
+            {% include 'responsive-image' with image: section.settings.desktop_image, max_width: 875, max_height: 1107 %}
+            {% if section.settings.media_caption != blank %}<p class="promise__mediaCaption">Olivia Wilde, Actor & Filmmaker</p>{% endif %}
+        </div>
+    {% endif %}
+
     <div class="promise__row">
-      <h1 class="promise__title promise__title--desktop">Get gorgeous skin with natural-biocompatible skincare that works.</h1>
+        {% if section.settings.heading != blank %}
+           <h1 class="promise__title promise__title--desktop">Get gorgeous skin with natural-biocompatible skincare that works.</h1>
+        {% endif %}
+    
        <div class="promise__items">
-           <div class="promise__icon">
-               {% render 'icon-mandala' %}
-               <div class="promise__iconContent">
-                   <p class="promise__iconHeader">NATURAL-BIOCOMPATIBLE</p>
-                   <a href="#" class="promise__iconLink link link--default">learn more</a>
-               </div>
-           </div>
-           <div class="promise__icon">
-            {% render 'icon-microscope' %}
-            <div class="promise__iconContent">
-                <p class="promise__iconHeader">CLINICALLY PROVEN</p>
-                <a href="#" class="promise__iconLink link link--default">learn more</a>
-            </div>
+            {% for block in section.blocks %}
+
+                {% if block.settings.icon_name != blank %}
+                    <div class="promise__icon">
+                        
+                        {% assign icon = block.settings.icon_name %}
+                        {% assign icon_prefix = 'icon-' %}
+                        {% assign icon_snip = icon_prefix | append:icon %}
+                         {% include {{icon_snip}} %}
+                        <div class="promise__iconContent">
+                            {% if block.settings.icon_text != blank %}
+                                <p class="promise__iconHeader">NATURAL-BIOCOMPATIBLE</p>
+                            {% endif %}
+
+                            {% if block.settings.icon_url != blank and block.settings.icon_cta-text != blank %}
+                                <a href="block.settings.icon_url" class="promise__iconLink link link--default">{{block.settings.icon_cta-text}}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% endfor %}
         </div>
-        <div class="promise__icon">
-            {% render 'icon-recycle' %}
-            <div class="promise__iconContent">
-                <p class="promise__iconHeader">CLEAN & SUSTAINABLE</p>
-                <a href="#" class="promise__iconLink link link--default">learn more</a>
-            </div>
-        </div>
-       </div>
     </div>
 </div>
 
@@ -37,11 +46,52 @@
 {
  "name": "promise section",
  "settings": [
-   {
-       "type": "image_picker",
-       "id": "desktop_image",
-       "label": "Please select side image"
-   }
- ]
+    {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Please select side image"
+    },
+    {
+        "type": "text",
+        "id": "media_caption",
+        "label": "please enter media caption",
+        "default": "Olivia Wilde, Actor & Filmmaker"
+    },
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "please enter heading",
+        "default": "Get gorgeous skin with natural-biocompatible skincare that works."
+    }
+   ],
+   "blocks": [
+     {
+         "type": "icon-text",
+         "name": "Icon-Text",
+         "settings": [
+           {
+               "type": "text",
+               "id": "icon_name",
+               "label": "please enter icon name"
+           },
+           {
+               "type": "text",
+               "id": "icon_text",
+               "label": "please enter text"
+           },
+           {
+               "type": "url",
+               "id": "icon_url",
+               "label": "Please enter icon url"
+           },
+           {
+               "type": "text",
+               "id": "icon_cta-text",
+               "label": "please enter icon cta text",
+               "default": "Learn More"
+           }
+         ]
+     }
+   ]
 }
 {% endschema %}

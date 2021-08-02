@@ -1,0 +1,21 @@
+<div class="singleProduct {{class}}">
+    <div class="singleProduct__image">
+        {% include 'responsive-image' with image: product.featured_image, max_width: 750, max_height: 750 %}
+
+    </div>
+    <div class="singleProduct__desc">
+        <div class="singleProduct__star"></div>
+        <div class="singleProduct__info">
+            <p class="singleProduct__title">{{product.metafields.info.title}} <span class="singleProduct__title singleProduct__title--regular">| {{product.title}}</span></p>
+            <p class="singleProduct__text">{{product.metafields.info.text}}</p>
+        </div>
+        <a class="singleProduct__cart link link--default">
+            ADD TO BAG 
+            <span class="singleProduct-divider">—</span>
+            {% if product.compare_at_price != nil %}
+              <span class="singleProduct__price">${{product.compare_at_price | divided_by: 100}}</span>
+            {% endif %}
+            <span class="singleProduct__price singleProduct__price--cross"> ${{product.price | divided_by: 100}}</span>
+        </a>
+    </div>
+</div>

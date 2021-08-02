@@ -63,7 +63,7 @@
           </div>
         {% endif %} 
             </div>
-
+          {% if block.settings.mega-menu-image %}
             <div class="megamenu__list megamenu__list--image">
                <img class="megamenu__image" alt="" src="{{block.settings.mega-menu-image | img_url: 'master'}}"/>
                <p class="megamenu__caption">{{block.settings.mega-menu-text}}</p>
@@ -71,6 +71,7 @@
                 <a class="megamenu__cta link--default" href="{{block.settings.mega-cta-url}}">{{block.settings.mega-cta-text |  upcase}}</a>
                {% endif %}
             </div>
+          {% endif %}
         </div>
     </div>
 </div>

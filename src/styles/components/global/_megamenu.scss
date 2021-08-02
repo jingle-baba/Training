@@ -11,7 +11,9 @@ $component: ".megamenu";
     &.active {
         opacity:1;
         transform: translateY(rem(88px));
+        z-index:11;
     }
+
 }
 
 #{$component}__container {
@@ -46,6 +48,10 @@ $component: ".megamenu";
 
     &--bold {
         font-weight: 500;
+    }
+
+    &:hover {
+        color: color('secondary');
     }
 }
 

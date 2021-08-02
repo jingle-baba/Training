@@ -1,11 +1,11 @@
 $component: ".promise";
 
 #{$component} {
-    @include padding(rem(48px),rem(16px),null,rem(15px));
+    @include padding(rem(80px),rem(16px),null,rem(15px));
     @include above('tablet') {
         display: flex;
         gap: 40px;
-        align-items: center;
+        align-items: flex-start;
     }
     @include above('desktop') {
         gap:16px;
@@ -20,7 +20,7 @@ $component: ".promise";
 }
 
 #{$component}__title {
-    font-size: rem(22px);
+    font-size: rem(24px);
     @include font-family('ivy');
     line-height:rem(40px);
     letter-spacing: 1px;
@@ -50,7 +50,7 @@ $component: ".promise";
     }
 
     @include above ('desktop') {
-        font-size: rem(63px);
+        font-size: rem(72px);
         letter-spacing: 2px;
         line-height: rem(96px);
     }
@@ -67,17 +67,13 @@ $component: ".promise";
     }
 
     @include above('tablet') {
-        max-width: 300px;
+        max-width: 50%;
         width: 100%;
         @include margin(0,0,0,0);
     }
 
-    @include above('tablet-large') {
-        max-width: 50%;
-    }
-
     @include above('desktop') {
-            max-width: rem(600px);
+            max-width: rem(704px);
             img {
                 max-height:rem(900px);
                 object-fit:cover;
@@ -89,12 +85,15 @@ $component: ".promise";
     max-width: rem(288px);
     @include margin(rem(40px),0,0,0);
 
+    @include above ('tablet') {
+      @include margin(rem(80px),0,0,0);
+    }
+
     @include above('tablet-large') {
         max-width: 100%;
         display: flex;
         flex-wrap: wrap;
         gap: 55px;
-        @include margin(rem(80px),0,0,0);
     }
 
     @include above('desktop') {
@@ -124,7 +123,7 @@ $component: ".promise";
 }
 
 #{$component}__iconHeader {
-    @include margin ( 0, 0, 0, 0);
+    @include margin ( 0, 0, rem(8px), 0);
     letter-spacing: 0.5px;
     line-height: rem(16px);
 
@@ -132,6 +131,7 @@ $component: ".promise";
         font-size: rem(16px);
         letter-spacing:1px;
         line-height: 20px;
+        margin-bottom: 0;
     }
 }
 
@@ -159,6 +159,6 @@ $component: ".promise";
 #{$component}__row {
 
     @include above ('desktop') {
-        max-width: rem(600px);
+        max-width: 45rem;
     }
 }

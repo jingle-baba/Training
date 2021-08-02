@@ -13,139 +13,119 @@ Theme Store optional settings:
 
   <div class="container footer__container">
     <div class="footer__row">
-      <div class="footer__logo">
-        <img src="{{'b.png' | asset_url}}" />
-      </div>
-      <div class="footer__body">
-
-        <div class="footer__newsletter newsletter">
-              <p class="footer__heading">
-                Sign Up for Offers,<span class="newsletter__linebreaker"></span>
-                Product News, and Tips
-              </p>
-              <form class="newsletter__form">
-                <input type="text" class="newsletter__text" placeholder="Enter your phone or email" />
-                <button type="submit" class="newsletter__submit">SEND</button>
-               </form>
-               <p class="newsletter__desc">
-                 By subscribing to True Botanicals Text Alerts you consent to receive a varying number of
-                  marketing messages via automated technology and agree 
-                  to the terms and conditions. Message and data rates may apply.
-                  Reply HELP for help or STOP to opt-out.
-               </p>
+      {% if section.settings.footer_logo  != blank %}
+        <div class="footer__logo">
+          {% include 'responsive-image' with image: section.settings.footer_logo, max_width: 52, max_height: 75 %}
         </div>
-
+      {% endif %}
+      <div class="footer__body">
+      {% if section.settings.newsletter_toggle == true %}
+          <div class="footer__newsletter newsletter">
+                <p class="footer__heading">
+                  Sign Up for Offers,<span class="newsletter__linebreaker"></span>
+                  Product News, and Tips
+                </p>
+                <form class="newsletter__form">
+                  <input type="text" class="newsletter__text" placeholder="Enter your phone or email" />
+                  <button type="submit" class="newsletter__submit">SEND</button>
+                </form>
+                {% if section.settings.newsletter-text != nil %}
+                <p class="newsletter__desc">
+                    {{section.settings.newsletter-text}}
+                </p>
+                {% endif %}
+          </div>
+        {% endif %}
+        {% if section.settings.enable_social == true %}
          <div class="footer__social social">
+           {% if section.settings.social_heading != null %}
              <p class="social__heading footer__heading">
-               Follow Us
+               {{section.settings.social_heading}}
              </p>
+            {% endif %}
              <div class="social__items">
+               {% if section.settings.ig_url != blank %}
                 <div class="social__icon">
+                  <a href="" >
                   {% render 'icon-ig' %}
+                  </a>
                 </div>
-                <div class="social__icon">
-                  {% render 'icon-fb' %}
-                </div>
-                <div class="social__icon">
-                  {% render 'icon-pt' %}
-                </div>
-                <div class="social__icon">
-                  {% render 'icon-tw' %}
-                </div>
-                <div class="social__icon">
-                  {% render 'icon-yt' %}
-                </div>
+               {% endif %}
+               {% if section.settings.fb_url != blank %}
+                  <div class="social__icon">
+                    <a href="">
+                    {% render 'icon-fb' %}
+                    </a>
+                  </div>
+                {% endif %}
+                {% if section.settings.pt_url != blank %}
+                  <div class="social__icon">
+                    <a href="">
+                    {% render 'icon-pt' %}
+                    </a>
+                  </div>
+                {% endif %}
+                {% if section.settings.tw_url != blank %}
+                  <div class="social__icon">
+                    <a href="" >
+                    {% render 'icon-tw' %}
+                    </a>
+                  </div>
+                {% endif %}
+                {% if section.settings.yt_url != blank %}
+                  <div class="social__icon">
+                    <a href="" >
+                    {% render 'icon-yt' %}
+                    </a>
+                  </div>
+                {% endif %}
              </div>
          </div>
+         {% endif %}
 
          <div class="footer__items">
 
+          {% if section.settings.footer_linklist-1 %}
+          {% assign link_list = linklists[section.settings.footer_linklist-1] %}
             <div class="footer__menu footerNav">
-              <p class="footerNav__title">Shop <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
+              <p class="footerNav__title">{{link_list.title}} <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
                 <ul class="footerNav__items">
+                  {% for link in link_list.links %}
                   <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
+                    <a href="{{link.url}}" class="footerNav__link">{{link.title}}</a>
                   </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
+                  {% endfor %}
                 </ul>
             </div>
+          {% endif %}
 
+          {% if section.settings.footer_linklist-2 %}
+          {% assign link_list = linklists[section.settings.footer_linklist-2] %}
             <div class="footer__menu footerNav">
-              <p class="footerNav__title">Shop <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
+              <p class="footerNav__title">{{link_list.title}} <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
                 <ul class="footerNav__items">
+                  {% for link in link_list.links %}
                   <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
+                    <a href="{{link.url}}" class="footerNav__link">{{link.title}}</a>
                   </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
+                  {% endfor %}
                 </ul>
             </div>
+          {% endif %}
 
+          {% if section.settings.footer_linklist-3 %}
+          {% assign link_list = linklists[section.settings.footer_linklist-3] %}
             <div class="footer__menu footerNav">
-              <p class="footerNav__title">Shop <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
+              <p class="footerNav__title">{{link_list.title}} <span class="footerNav__icon">{% include 'icon-chevron-down' %}</span></p>
                 <ul class="footerNav__items">
+                  {% for link in link_list.links %}
                   <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
+                    <a href="{{link.url}}" class="footerNav__link">{{link.title}}</a>
                   </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
-                  <li class="footerNav__menu">
-                    <a href="#" class="footerNav__link">Cleansers</a>
-                  </li>
+                  {% endfor %}
                 </ul>
             </div>
-         </div>
-
-         <div class="footer__copyright copyright">
-            <p class="copyright__text">© 2021 True Botanicals. All Rights Reserved.</p>
-            <div class="copyright__row">
-              <a class="copyright__link" href="#">Terms of Use</a>
-              <a class="copyright__link" href="#">Privacy Policy</a>
-            </div>
-         </div>
+          {% endif %}
       </div>
     </div>
   </div>
@@ -158,17 +138,131 @@ Theme Store optional settings:
   {
     "name": "Footer",
     "settings": [
+    {
+      "type": "header",
+      "content": "Logo section"
+    },
+     {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Please select footer logo"
+     },
+     {
+       "type": "header",
+       "content":"newsletter section"
+     },
+     {
+       "type":"checkbox",
+       "id":"newsletter_toggle",
+       "label":"Enable newsletter ?"
+     },
+     {
+       "type": "text",
+       "id": "newsletter-text",
+       "label": "please select newsletter description",
+       "default": "By subscribing to True Botanicals Text Alerts you consent to receive a varying number of marketing messages via automated technology and agree  to the terms and conditions. Message and data rates may apply. Reply HELP for help or STOP to opt-out."
+     },
+     {
+       "type": "header",
+       "content": "social menu"
+     },
+     {
+       "type": "checkbox",
+       "id": "enable_social",
+       "label": "Enable Social ?",
+       "default": true
+     },
+     {
+      "type": "text",
+      "id": "social_heading",
+      "label": "Please enter social heading",
+      "default": "follow us"
+    },
+     {
+       "type": "url",
+       "id": "ig_url",
+       "label": "Please enter instagram url",
+       "default": "/"
+     },
+     {
+      "type": "url",
+      "id": "fb_url",
+      "label": "Please enter facebook url",
+      "default": "/"
+    },
+    {
+      "type": "url",
+      "id": "pt_url",
+      "label": "Please enter pin interest url",
+      "default": "/"
+    },
+    {
+      "type": "url",
+      "id": "tw_url",
+      "label": "Please enter twitter url",
+      "default": "/"
+    },
+    {
+      "type": "url",
+      "id": "yt_url",
+      "label": "Please enter youtube url",
+      "default": "/"
+    },
+     {
+       "type": "header",
+       "content": "Menu section"
+     },
       {
         "type": "link_list",
-        "id": "footer_linklist",
+        "id": "footer_linklist-1",
         "label": "First menu",
         "default": "footer"
       },
       {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": false
+        "type": "link_list",
+        "id": "footer_linklist-2",
+        "label": "second menu",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist-3",
+        "label": "third menu",
+        "default": "footer"
+      },
+      {
+        "type": "header",
+        "content": "Copyright"
+      },
+      {
+        "type": "text",
+        "id": "copyright_text",
+        "label": "please enter copyright text",
+        "default": "© 2021 True Botanicals. All Rights Reserved."
+      },
+      {
+        "type": "text",
+        "id": "copyright_first_menu",
+        "label": "Please enter first menu title",
+        "default":"Terms of Use"
+      },
+      {
+        "type": "url",
+        "id": "copyright_url_first",
+        "label": "please enter first menu url",
+        "default": "/"
+      },
+      {
+        "type": "text",
+        "id": "copyright_second_menu",
+        "label": "Please enter first menu title",
+        "default":"Privacy Policy"
+      },
+      {
+        "type": "url",
+        "id": "copyright_url_second",
+        "label": "please enter first menu url",
+        "default": "/"
       }
     ]
   }

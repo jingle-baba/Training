@@ -5,20 +5,22 @@ $footerNav: ".footerNav";
 $copyright: ".copyright";
 
 .big-text {
-  font-size: rem(15px);
+  font-size: rem(16px);
   line-height: rem(24px);
 }
 
 .small-text {
-  font-size: rem(11px);
-  line-height: rem(14px);
+  font-size: rem(12px);
+  line-height: rem(16px);
 }
+
 
 #{$component} {
   @extend .big-text;
   background: color('mink');
   font-weight: 300;
   color: #B1A7A2;
+  @include margin(rem(40px),null, null, null);
   @include padding(null, null, rem(48px), null);
 
   @include above('mobile-large') {
@@ -27,6 +29,10 @@ $copyright: ".copyright";
 
   @include above('tablet') {
     @include padding(rem(80px),null,rem(80px),null);
+  }
+
+  @include above('desktop') {
+    @include margin(rem(80px),null, null, null);
   }
 }
 
@@ -43,7 +49,7 @@ $copyright: ".copyright";
 
   @include above ('tablet-large') {
       max-width: rem(920px);
-      padding: 0 100px;
+      padding:0;
   }
 
   @include above('desktop') {
@@ -96,6 +102,9 @@ $copyright: ".copyright";
   @include above('desktop') {
      gap: rem(120px);
   }
+}
+#{$component}__logo {
+  min-width: rem(60px);
 }
 
 #{$component}__items {
@@ -152,6 +161,10 @@ $copyright: ".copyright";
   @include above('desktop') {
     display: inline-block;
   }
+
+  @include above('desktop-large') {
+    display: block;
+  }
 }
 
 #{$newsletter}__form {
@@ -204,13 +217,21 @@ $copyright: ".copyright";
   @include above ('desktop-large') {
     order:2;
     width: 100%;
-
+    @include margin (rem(56px),null ,null, null);
   }
 }
 
 #{$social}__items {
   display: flex;
   gap: 40px;
+
+  @include above('desktop-large') {
+    gap: 64px;
+  }
+}
+
+#{$social}__heading {
+  text-transform: capitalize;
 }
 
 
@@ -279,6 +300,10 @@ $copyright: ".copyright";
 
 #{$footerNav}__menu {
   margin-bottom:rem(8px);
+
+  @include above('tablet-large') {
+    min-width: rem(140px);
+  }
 }
 
 #{$footerNav}__icon {
