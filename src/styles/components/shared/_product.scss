@@ -1,0 +1,19 @@
+$component: ".product";
+
+#{$component} {
+    @include padding(rem(26px),null,null,null);
+}
+
+#{$component}__imageList {
+    list-style: none;
+    @include padding (0,0,0,0);
+    @include margin(0,0,rem(8px),0);
+}
+
+#{$component}__paginationItem {
+    max-width:45px;
+    max-height: 60px;
+    &:first-child{
+        margin-right: rem(24px) !important;
+    }
+}

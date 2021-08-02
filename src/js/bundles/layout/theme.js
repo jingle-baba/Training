@@ -17,7 +17,7 @@ import mobileNavigation from '../components/mobile-navigation';
 import headerSearch from '../components/header-search';
 import ajaxSearch from '../components/ajax-search';
 import showMegaMenu from '../components/mega-menu';
-import swiper from '../components/ritualSlider';
+
 mobileNavigation()
 headerSearch()
 ajaxSearch()
@@ -29,7 +29,3 @@ window.mobileNavigation.init();
 window.ajaxSearch.init();
 window.showMegaMenu.init();
 window.footerNav.init();
-
-window.addEventListener('DOMContentLoaded',() => {
- swiper;
-})

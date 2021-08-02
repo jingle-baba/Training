@@ -6,7 +6,7 @@ const container = document.querySelector(".ritual__row .swiper-container");
 const currentIndex = document.querySelector('#current-index');
 const totalIndex = document.querySelector('#total-number');
 
-const swiper = new Swiper('.swiper-container', {
+const swiper = new Swiper('.ritual__row .swiper-container', {
     speed: 400,
     spaceBetween: 10,
     watchOverflow: true,
