@@ -1,24 +1,123 @@
 <div class="product">
-    <div class="container-fluid product__container">
-     <div class="row product__row">
+    <div class="product__container">
+      <div class="product__row">
         <div class="product__breadcrumb">
-            {% render 'breadcrumbs' %}
+          {% render 'breadcrumbs' with handle:{{product.title}} %}
         </div>
-        <div class="product__carousel swiper-container">
-           <ul class="swiper-wrapper product__mainSlider product__imageList">
-              {% for image in product.images %}
-                <li class="swiper-slide"><img src="{{image | img_url: "master"}}"></li>
+        <div class="product__media">
+            <div class="product__carousel swiper-container">
+              <ul class="swiper-wrapper product__mainSlider product__imageList">
+                  {% for image in product.images %}
+                    <li class="swiper-slide"><img src="{{image | img_url: "master"}}"></li>
+                  {% endfor %}
+              </ul>
+            </div>
+            <div class="product__pagination swiper-container">
+              <ul class="swiper-wrapper product__imageList">
+                {% for image in product.images %}
+                  <li class="swiper-slide product__paginationItem"><img src="{{image | img_url: "master"}}"></li>
+                {% endfor %}
+              </ul>
+            </div>
+        </div>
+
+          <div class="product__desc">
+            <div class="product__ratings">
+              {% if product.metafields.product.collection-handle != '' %}
+                
+                {% assign collection = collections[product.metafields.product.collection-handle] %}
+                
+                <a class="product__collection" href="{{collection.url}}">{{collection.title}}</a>
+              {% endif %}
+            </div>
+            <div class="product__info">
+              <h4 class="product__title">{{product.title}}</h4>
+              <p class="product__price">${{ product.price | divided_by: 100 }}</p>
+              {% if product.metafields.product.text != '' %}
+               <p class="product__text">{{product.metafields.product.text}}</p>
+              {% endif %}
+            </div>
+            <a class="product__link" href="#" data-ingrediant>view full ingrediant list ›</a>
+
+            <div class="product__feature">
+              <p class="product__featureTitle">WHAT IT’S GOOD FOR</p>
+
+              <div class="product__featureItems">
+                {% if product.metafields.product.feature-icon-1 %}
+                  <div class="product__iconText">
+                    {% assign icon = product.metafields.product.feature-icon-1 %}
+                    {% assign icon_prefix = 'icon-' %}
+                    {% assign icon_snip = icon_prefix | append:icon %}
+                    {% include {{icon_snip}} %}
+                    {% if product.metafields.product.feature-text-1 %}
+                      <p class="product__iconTextContent">
+                        {{product.metafields.product.feature-text-1}}
+                      </p>
+                     {% endif %}
+                  </div>
+                {% endif %}
+                {% if product.metafields.product.feature-icon-2 %}
+                  <div class="product__iconText">
+                    {% assign icon = product.metafields.product.feature-icon-2 %}
+                    {% assign icon_prefix = 'icon-' %}
+                    {% assign icon_snip = icon_prefix | append:icon %}
+                    {% include {{icon_snip}} %}
+                    {% if product.metafields.product.feature-text-2 %}
+                      <p class="product__iconTextContent">
+                        {{product.metafields.product.feature-text-2}}
+                      </p>
+                     {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if product.metafields.product.feature-icon-3 %}
+                  <div class="product__iconText">
+                    {% assign icon = product.metafields.product.feature-icon-3 %}
+                    {% assign icon_prefix = 'icon-' %}
+                    {% assign icon_snip = icon_prefix | append:icon %}
+                    {% include {{icon_snip}} %}
+                    {% if product.metafields.product.feature-text-3 %}
+                      <p class="product__iconTextContent">
+                        {{product.metafields.product.feature-text-3}}
+                      </p>
+                     {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if product.metafields.product.feature-icon-4 %}
+                  <div class="product__iconText">
+                    {% assign icon = product.metafields.product.feature-icon-4 %}
+                    {% assign icon_prefix = 'icon-' %}
+                    {% assign icon_snip = icon_prefix | append:icon %}
+                    {% include {{icon_snip}} %}
+                    {% if product.metafields.product.feature-text-4 %}
+                      <p class="product__iconTextContent">
+                        {{product.metafields.product.feature-text-4}}
+                      </p>
+                     {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="product__variants variant">
+              {% for option in product.options_with_values %}
+                <div class="variant__item">
+                  <p class="variant__text">{{option.name | upcase}}</p>
+                  {% for value in option.values %}
+                    <p class="variant__text variant__text--regular" data-name="{{value | downcase}}">{{value}}</p>
+                  {% endfor %}
+                </div>
               {% endfor %}
-           </ul>
-        </div>
-        <div class="product__pagination swiper-container">
-          <ul class="swiper-wrapper product__imageList">
-            {% for image in product.images %}
-              <li class="swiper-slide product__paginationItem"><img src="{{image | img_url: "master"}}"></li>
-            {% endfor %}
-          </ul>
+            </div>
+            <select class="hide" id="product-variant">
+              {% for variant in product.variants %}
+               <option selected data-name="{{variant.title | downcase}}">{{variant.id}}</option>
+              {% endfor %}
+            </select>
+            <div class="product__buttons">
+               <button class="btn btn-primary product__addToCart">add to bag</button>
+            </div>
+          </div>
         </div>
       </div>
-        </div>
-    <div class="product__desc"></div>
 </div>

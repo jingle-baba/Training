@@ -2,6 +2,10 @@ $component: ".breadcrumbs";
 
 #{$component} {
     @include padding(null,null,rem(8px), rem(16px));
+
+    @include above('tablet-large') {
+        @include padding(null,null,rem(24px),0);
+    }
 }
 
 #{$component}__text {
@@ -13,4 +17,10 @@ $component: ".breadcrumbs";
     color: color('primary');
     
     @include margin(0,0,0,0);
+
+    @include above('tablet-large') {
+        font-size: rem(13px);
+        letter-spacing: rem(1px);
+        line-height: rem(11px);
+    }
 }

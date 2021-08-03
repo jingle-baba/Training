@@ -9,19 +9,28 @@ export const mainSlider = new Swiper('.product__carousel', {
     breakpoints: {
         540: {
           slidesPerView: 2,
-          spaceBetween: 10,
+          spaceBetween: 6,
         },
         768: {
             slidesPerView: 3,
-            spaceBetween: 14,
-        }
+            spaceBetween: 8,
+        },
+        1024: {
+            slidesPerView:1
+        },
       },
   })
   
 export const paginationSlider = new Swiper('.product__pagination', {
     speed: 400,
     spaceBetween: 4,
-    slidesPerView: 'auto'
+    slidesPerView: 'auto',
+    breakpoints: {
+        1024: {
+            direction: 'vertical',
+            spaceBetween: 8
+        },
+    }
 });
 
 export const paginate = (paginateList = paginateItem,speed=400) => {
